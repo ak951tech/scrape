@@ -87,9 +87,6 @@ def getData(varSymbol):
     for url in listUrls:
         time.sleep(random.randint(1,4))
 
-        print('\tb')
-
-
         url = url.format(varSymbol, varSymbol)
         httpResponseText = makeHttpRequest(url)
 
@@ -109,9 +106,7 @@ def getData(varSymbol):
 
     for key in sorted(dictReturn.keys()):
         dictReturnSorted[key] = dictReturn[key]
-        print('\tc')
 
-# git clone --reference https://github.com/ak951tech/scrape.git
     return dictReturnSorted
 
 
@@ -269,7 +264,6 @@ def loop():
             dictClassificationData = json.load(file)
 
     for count,symbol in enumerate(listSymbols):
-        print('\ta')
         if symbol not in dictClassificationData:
             dictClassificationData[symbol] = getData(symbol)
 
