@@ -78,14 +78,14 @@ def getData(varSymbol):
     listOptionalUrls.append('https://finance.yahoo.com/tech')
 
     random.shuffle(listOptionalUrls)
-    listOptionalUrls = listOptionalUrls[0:random.randint(1,3)]
+    listOptionalUrls = listOptionalUrls[0:random.randint(0,2)]
 
     listUrls.extend(listOptionalUrls)
     random.shuffle(listUrls)
 
 
     for url in listUrls:
-        time.sleep(random.randint(1,4))
+        time.sleep(random.randint(1,2))
 
         url = url.format(varSymbol, varSymbol)
         httpResponseText = makeHttpRequest(url)
@@ -267,11 +267,11 @@ def loop():
         if symbol not in dictClassificationData:
             dictClassificationData[symbol] = getData(symbol)
 
-        if count%10==0:
+        if count%100==0:
             with open(filename, 'w') as file:
                 json.dump(dictClassificationData, file)
 
-            time.sleep(random.randint(1, 3))
+            time.sleep(random.randint(1, 2))
 
         print(count,symbol)
 
