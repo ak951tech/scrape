@@ -111,7 +111,7 @@ def getData(varSymbol):
         dictReturnSorted[key] = dictReturn[key]
         print('\tc')
 
-# git remote add origin https://github.com/ak951tech/scrape.git
+# git clone --reference https://github.com/ak951tech/scrape.git
     return dictReturnSorted
 
 
